@@ -1,0 +1,45 @@
+#! /cs/local/bin/vvp
+:ivl_version "10.0 (stable)" "(v10_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x23f21a0 .scope module, "LabK" "LabK" 2 1;
+ .timescale 0 0;
+L_0x2436f00 .functor NOT 1, v0x2436b70_0, C4<0>, C4<0>, C4<0>;
+L_0x2436fc0 .functor AND 1, v0x24369a0_0, L_0x2437290, C4<1>, C4<1>;
+L_0x24370c0 .functor AND 1, v0x2436b70_0, v0x2436ab0_0, C4<1>, C4<1>;
+L_0x2437160 .functor OR 1, L_0x24373a0, L_0x24374f0, C4<0>, C4<0>;
+L_0x2437290 .functor BUFZ 1, L_0x2436f00, C4<0>, C4<0>, C4<0>;
+L_0x24373a0 .functor BUFZ 1, L_0x2436fc0, C4<0>, C4<0>, C4<0>;
+L_0x24374f0 .functor BUFZ 1, L_0x24370c0, C4<0>, C4<0>, C4<0>;
+v0x23f1e60_0 .net "LowerAndIn", 0 0, L_0x24374f0;  1 drivers
+v0x2436750_0 .net "LowerAndOut", 0 0, L_0x24370c0;  1 drivers
+v0x2436810_0 .net "UpperAndIn", 0 0, L_0x24373a0;  1 drivers
+v0x24368e0_0 .net "UpperAndOut", 0 0, L_0x2436fc0;  1 drivers
+v0x24369a0_0 .var "a", 0 0;
+v0x2436ab0_0 .var "b", 0 0;
+v0x2436b70_0 .var "c", 0 0;
+v0x2436c30_0 .net "lowerInput", 0 0, L_0x2437290;  1 drivers
+v0x2436cf0_0 .net "notOutput", 0 0, L_0x2436f00;  1 drivers
+v0x2436e40_0 .net "z", 0 0, L_0x2437160;  1 drivers
+    .scope S_0x23f21a0;
+T_0 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x24369a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2436ab0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2436b70_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 21 "$display", "a=%b b=%b c=%b z=%b", v0x24369a0_0, v0x2436ab0_0, v0x2436b70_0, v0x2436e40_0 {0 0 0};
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "LabK6.v";
